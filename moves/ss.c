@@ -22,7 +22,7 @@ void swp_a_b(t_list **head_a, t_list **head_b) {
     t_list *first = *head_b;
     t_list *second = (*head_b)->next;
 
-    int temp = first->content;
+    void *temp = first->content;
     first->content = second->content;
     second->content = temp;
 

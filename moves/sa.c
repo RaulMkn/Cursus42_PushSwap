@@ -21,7 +21,7 @@ void swp_a(t_list **head) {
     t_list *second = (*head)->next;
 
     // Intercambiar los valores de los nodos
-    int temp = first->content;
+    void *temp = first->content;
     first->content = second->content;
     second->content = temp;
 }
