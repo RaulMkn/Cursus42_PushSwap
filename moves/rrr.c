@@ -6,25 +6,14 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 17:07:57 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/02 17:12:22 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/06 19:48:16 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 16:46:33 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/02 17:07:35 by rmakende         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../push_swap.h"
 
-#include "../push-swap.h"
-
-void reverse_rotate_both(t_list **list_a, t_list **list_b) {
+void	reverse_rotate_both(t_list **list_a, t_list **list_b)
+{
 	reverse_rotate_a(list_a);
 	reverse_rotate_b(list_b);
 }

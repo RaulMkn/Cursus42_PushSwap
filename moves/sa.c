@@ -6,23 +6,23 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 14:45:46 by rmakende          #+#    #+#             */
-/*   Updated: 2024/09/25 18:29:17 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/06 19:47:39 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push-swap.h"
+#include "../push_swap.h"
 
-void swp_a(t_list **head) {
-    if (*head == NULL || (*head)->next == NULL) {
-        return;
-    }
-    // Asignar punteros a los dos primeros nodos
-    t_list *first = *head;
-    t_list *second = (*head)->next;
+void	swp_a(t_list **head)
+{
+	t_list	*first;
+	t_list	*second;
+	void	*temp;
 
-    // Intercambiar los valores de los nodos
-    void *temp = first->content;
-    first->content = second->content;
-    second->content = temp;
+	first = *head;
+	second = (*head)->next;
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	temp = first->content;
+	first->content = second->content;
+	second->content = temp;
 }
-

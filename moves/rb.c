@@ -6,22 +6,22 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:06:37 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/02 16:52:05 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/06 19:47:56 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push-swap.h"
+#include "../push_swap.h"
 
-void rotate_b(t_list **head) 
+void	rotate_b(t_list **head)
 {
-    t_list *first = *head;
-    t_list *current = *head;
+	t_list	*first;
+	t_list	*current;
 
-    *head = (*head)->next;
-
-    while (current->next != NULL) {
-        current = current->next;
-    }
-    current->next = first;
-    first->next = NULL;
+	first = *head;
+	current = *head;
+	*head = (*head)->next;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = first;
+	first->next = NULL;
 }

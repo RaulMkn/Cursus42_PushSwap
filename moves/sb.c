@@ -6,20 +6,23 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:54:50 by rmakende          #+#    #+#             */
-/*   Updated: 2024/09/25 18:54:51 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/06 19:48:21 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push-swap.h"
+#include "../push_swap.h"
 
-void swp_b(t_list **head_b) {
-    if (*head_b == NULL || (*head_b)->next == NULL) {
-        return;
-    }
-    t_list *first = *head_b;
-    t_list *second = (*head_b)->next;
+void	swp_b(t_list **head)
+{
+	t_list	*first;
+	t_list	*second;
+	void	*temp;
 
-    void *temp = first->content;
-    first->content = second->content;
-    second->content = temp;
+	first = *head;
+	second = (*head)->next;
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	temp = first->content;
+	first->content = second->content;
+	second->content = temp;
 }
