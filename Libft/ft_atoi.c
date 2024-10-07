@@ -55,6 +55,9 @@ int	ft_atoi(const char *str)
 	{
 		sum = (sum * 10) + (str[i] - '0');
 		i++;
+		if (ft_isalpha(str[i]))
+			return(0);
+		
 	}
 	return (sum * mult);
 }
