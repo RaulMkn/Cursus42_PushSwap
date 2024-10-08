@@ -6,13 +6,13 @@ make clean
 sleep 1
 
 # Prueba 1 (esperado: éxito)
-./push_swap 1 2 3 4 5 6 7 8 9
+./push_swap 1 2 3 4 5 6 7 8 -2147483648
 if [ $? -eq 0 ]; then
     echo "Prueba 1: Exitosa (como se esperaba)"
 else
     echo "Prueba 1: Fallida (no se esperaba fallo)"
 fi
-valgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exitcode=1 ./push_swap 1 2 3 4 5 6 7 8 9 &> valgrind_output.txt
+valgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exitcode=1 ./push_swap 1 2 3 4 5 6 7 8 2147483647 &> valgrind_output.txt
 if grep -q "All heap blocks were freed -- no leaks are possible" valgrind_output.txt; then
     echo "No hay fugas de memoria."
 else

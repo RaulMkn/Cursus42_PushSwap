@@ -50,6 +50,19 @@ void free_split(char **head)
 	free(head);
 }
 
+t_list *bubble_sort(t_list *lst)
+{
+	t_list	*temp;
+
+	if (!lst)
+		return (NULL);
+	else
+	{
+		while (lst->next != NULL)
+			temp = temp->next;
+	}
+}
+
 int is_valid_num(const char *str)
 {
 	while (*str)
