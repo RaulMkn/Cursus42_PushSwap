@@ -6,11 +6,33 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/09 16:46:16 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:16:55 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_duplicates(const char *argv[])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (argv[i] != NULL)
+	{
+		j = i + 1;
+		while (argv[j] != NULL)
+		{
+			if (ft_strncmp(argv[i], argv[j], 3) == 0)
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
 t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 {
@@ -121,6 +143,8 @@ int	main(int argc, char const *argv[])
 
 	list = NULL;
 	temp = NULL;
+	if (check_duplicates(argv) == 1)
+		return (ft_printf("Error\n"), 1);
 	if (argc > 1)
 	{
 		if (process_arguments(argc, argv, &list, &temp) == 1)
