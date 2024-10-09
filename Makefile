@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:11:54 by rmakende          #+#    #+#              #
-#    Updated: 2024/10/02 17:14:23 by rmakende         ###   ########.fr        #
+#    Updated: 2024/10/09 16:30:17 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS = push_swap.c \
 	   ./moves/rra.c\
 	   ./moves/rrb.c\
 	   ./moves/rrr.c\
+	   push_swap_utils.c\
 
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 02:08:25 by rmakende          #+#    #+#             */
-/*   Updated: 2024/09/20 17:39:17 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/09 16:09:40 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,24 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	sum;
 	int	mult;
-	int	j;
 
 	i = check_spaces(str);
 	sum = 0;
 	mult = 1;
-	j = 0;
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			mult *= -1;
 		i++;
-		j++;
 	}
-	if (j >= 2)
+	if (i >= 2)
 		mult = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		sum = (sum * 10) + (str[i] - '0');
 		i++;
 		if (ft_isalpha(str[i]))
-			return(0);
-		
+			return (0);
 	}
 	return (sum * mult);
 }
