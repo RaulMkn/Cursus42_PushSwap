@@ -6,30 +6,25 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/09 17:16:55 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/14 21:59:53 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicates(const char *argv[])
+int	check_duplicates(t_list *lst)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (argv[i] != NULL)
+	t_list	*tmp;
+	while (lst)
 	{
-		j = i + 1;
-		while (argv[j] != NULL)
+		tmp = lst->next;
+		while (tmp)
 		{
-			if (ft_strncmp(argv[i], argv[j], 3) == 0)
-			{
+			if (*(int *)(tmp->content) == *(int *)(lst->content))
 				return (1);
-			}
-			j++;
+			tmp = tmp->next;
 		}
-		i++;
+		lst = lst->next;
 	}
 	return (0);
 }
@@ -41,8 +36,6 @@ t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 	new_node = ft_lstnew(new_content);
 	if (!new_node)
 	{
-		ft_printf("Error\n");
-		free(new_content);
 		free_list(list);
 		return (NULL);
 	}
@@ -74,15 +67,15 @@ t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
 	{
 		ptr = malloc(sizeof(int));
 		if (!ptr)
-			return (f_split(src, &lst, 1), NULL);
+			return (free(ptr), f_split(src, &lst, 1));
 		*ptr = ft_atoi(src[j], &comparer);
 		if (comparer)
-			return (ft_printf("Error\n"), f_split(src, &lst, 1), NULL);
+			return (free(ptr), f_split(src, &lst, 1));
 		if (*ptr == 0)
 		{
 			comparer = is_valid_num(src[j]);
 			if (comparer == 1)
-				return (ft_printf("Error\n"), free(ptr), f_split(src, &lst, 1));
+				return (free(ptr), f_split(src, &lst, 1));
 		}
 		temp = create_new_node(ptr, &lst, &temp);
 		j++;
@@ -100,13 +93,12 @@ int	handle_new_content(const char *arg, int **new_content, t_list **list)
 		return (0);
 	**new_content = ft_atoi(arg, &comparer);
 	if (comparer)
-		return (ft_printf("Error\n"), free(*new_content), free_list(list), 0);
+		return (free(*new_content), free_list(list), 0);
 	if (**new_content == 0)
 	{
 		comparer = is_valid_num(arg);
 		if (comparer == 1)
 		{
-			ft_printf("Error\n");
 			free(*new_content);
 			free_list(list);
 			return (0);
@@ -131,7 +123,7 @@ t_list **list, t_list **temp)
 			if (!*list)
 				return (1);
 			else
-				break ;
+				return (0);
 		}
 		result = handle_new_content(argv[i], &new_content, list);
 		if (result == 0)
@@ -149,15 +141,16 @@ int	main(int argc, char const *argv[])
 
 	list = NULL;
 	temp = NULL;
-	if (check_duplicates(argv) == 1)
-		return (ft_printf("Error\n"), 1);
 	if (argc > 1)
 	{
 		if (process_arguments(argc, argv, &list, &temp) == 1)
-			return (1);
-		print_list(list);
+			return (ft_putstr_fd("Error\n", 2), 1);
 	}
 	else
-		printf("Error: No se proporcionaron argumentos.\n");
+		ft_putstr_fd("Error\n", 2);
+	if (check_duplicates(list) == 1)
+		return (ft_putstr_fd("Error\n", 2), ft_lstclear(&list, free), 1);
+	//print_list(list);
+	ft_putstr_fd("OK\n", 1);
 	return (free_list(&list), 0);
 }
