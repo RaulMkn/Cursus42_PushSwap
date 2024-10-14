@@ -66,6 +66,7 @@ t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
 	int		*ptr;
 
 	j = 0;
+	comparer = 0;
 	src = ft_split(argv[1], ' ');
 	if (!src)
 		return (NULL);
@@ -73,8 +74,10 @@ t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
 	{
 		ptr = malloc(sizeof(int));
 		if (!ptr)
-			return (NULL);
-		*ptr = ft_atoi(src[j]);
+			return (f_split(src, &lst, 1), NULL);
+		*ptr = ft_atoi(src[j], &comparer);
+		if (comparer)
+			return (ft_printf("Error\n"), f_split(src, &lst, 1), NULL);
 		if (*ptr == 0)
 		{
 			comparer = is_valid_num(src[j]);
@@ -91,10 +94,13 @@ int	handle_new_content(const char *arg, int **new_content, t_list **list)
 {
 	int	comparer;
 
+	comparer = 0;
 	*new_content = malloc(sizeof(int));
 	if (!(*new_content))
 		return (0);
-	**new_content = ft_atoi(arg);
+	**new_content = ft_atoi(arg, &comparer);
+	if (comparer)
+		return (ft_printf("Error\n"), free(*new_content), free_list(list), 0);
 	if (**new_content == 0)
 	{
 		comparer = is_valid_num(arg);

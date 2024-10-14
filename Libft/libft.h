@@ -15,11 +15,11 @@
 
 # include <unistd.h>
 # include <string.h>
-# include <stdio.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include <limits.h>
 
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str, int *flag);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
