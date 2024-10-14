@@ -13,7 +13,7 @@
 # El compilador de C a usar
 CC = gcc
 # Las flags para el compillador
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 # Directorios y nombres de librerías
 LIBFT_DIR = ./Libft

@@ -19,7 +19,7 @@ AR = ar
 # The flags to use with the archiver
 ARFLAGS = -rc
 # The flags to use with the C compiler
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 # The command to remove files
 RM = rm -f
 # A list of all .c files in the current directory
