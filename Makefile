@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:11:54 by rmakende          #+#    #+#              #
-#    Updated: 2024/10/15 20:48:23 by rmakende         ###   ########.fr        #
+#    Updated: 2024/10/16 00:03:13 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS = push_swap.c \
 	   ./moves/rrb.c\
 	   ./moves/rrr.c\
 	   push_swap_utils.c\
-	   string_push_swap.c\
+	   #string_push_swap.c\
 
 
 

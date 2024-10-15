@@ -6,12 +6,11 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/15 20:53:07 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/16 00:10:41 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 {
@@ -34,14 +33,13 @@ t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 	*temp = new_node;
 	return (new_node);
 }
-/*
+
 t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
 {
 	char	**src;
 	int		j;
 	int		comparer;
 	int		*ptr;
-
 	j = 0;
 	comparer = 0;
 	src = ft_split(argv[1], ' ');
@@ -66,7 +64,7 @@ t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
 	}
 	return (f_split(src, &lst, 0), lst);
 }
-*/
+
 
 int	handle_new_content(const char *arg, int **new_content, t_list **list)
 {
