@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:20:27 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/09 16:42:01 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/15 20:31:26 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,22 @@ void	*f_split(char **head, t_list **list, int n)
 	free(head);
 	return (NULL);
 }
-
-t_list	*bubble_sort(t_list *lst)
+int	check_duplicates(t_list *lst)
 {
-	t_list	*temp;
-
-	if (!lst)
-		return (NULL);
-	else
+	t_list	*tmp;
+	
+	while (lst)
 	{
-		while (lst->next != NULL)
-			temp = temp->next;
+		tmp = lst->next;
+		while (tmp)
+		{
+			if (*(int *)(tmp->content) == *(int *)(lst->content))
+				return (1);
+			tmp = tmp->next;
+		}
+		lst = lst->next;
 	}
-	return (NULL);
+	return (0);
 }
 
 int	is_valid_num(const char *str)

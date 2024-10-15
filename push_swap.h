@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 19:35:42 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/09 16:41:56 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/15 20:52:16 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ void	reverse_rotate_both(t_list **list_a, t_list **list_b);
 void	print_list(t_list *head);
 void	free_list(t_list **head);
 void	*f_split(char **head, t_list **list, int n);
-t_list	*bubble_sort(t_list *lst);
 int		is_valid_num(const char *str);
+t_list *string_push_swap(char const *argv[], t_list *lst, t_list *temp);
+t_list	*populate_list(char **src, t_list *lst, t_list *temp);
+int		*process_number(char *str, int *comparer);
+int		check_duplicates(t_list *lst);
+
+
+
 
 #endif
