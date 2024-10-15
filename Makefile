@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:11:54 by rmakende          #+#    #+#              #
-#    Updated: 2024/10/14 22:03:22 by rmakende         ###   ########.fr        #
+#    Updated: 2024/10/15 20:20:14 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,6 @@ fclean: clean
 re: fclean all
 
 test:
-	@./algo.sh; ./algo2.sh; diff output.txt output2.txt; echo "Done"
+	@trash/algo.sh; trash/algo2.sh; diff trash/output.txt trash/output2.txt; echo "Done"
 
 .PHONY: all clean fclean re test

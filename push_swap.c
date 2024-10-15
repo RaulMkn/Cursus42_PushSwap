@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/14 21:59:53 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/15 19:40:59 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ int	main(int argc, char const *argv[])
 		ft_putstr_fd("Error\n", 2);
 	if (check_duplicates(list) == 1)
 		return (ft_putstr_fd("Error\n", 2), ft_lstclear(&list, free), 1);
-	//print_list(list);
-	ft_putstr_fd("OK\n", 1);
+	print_list(list);
+	//ft_putstr_fd("OK\n", 1);
 	return (free_list(&list), 0);
 }
