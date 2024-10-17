@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:20:27 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/15 20:31:26 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:35:47 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ void	*f_split(char **head, t_list **list, int n)
 	free(head);
 	return (NULL);
 }
+
 int	check_duplicates(t_list *lst)
 {
 	t_list	*tmp;
-	
+
 	while (lst)
 	{
 		tmp = lst->next;

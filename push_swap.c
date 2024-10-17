@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 16:07:42 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:38:16 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,6 @@ t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 	*temp = new_node;
 	return (new_node);
 }
-
-t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
-{
-	char	**src;
-	int		j;
-	int		comparer;
-	int		*ptr;
-	
-	j =	0;
-	comparer = 0;
-	src = ft_split(argv[1], ' ');
-	if (!src)
-		return (NULL);
-	while (src[j] != NULL)
-	{
-		ptr = malloc(sizeof(int));
-		if (!ptr)
-			return (free(ptr), f_split(src, &lst, 1));
-		*ptr = ft_atoi(src[j], &comparer);
-		if (comparer)
-			return (free(ptr), f_split(src, &lst, 1));
-		if (*ptr == 0)
-		{
-			comparer = is_valid_num(src[j]);
-			if (comparer == 1)
-				return (free(ptr), f_split(src, &lst, 1));
-		}
-		temp = create_new_node(ptr, &lst, &temp);
-		j++;
-	}
-	return (f_split(src, &lst, 0), lst);
-}
-
 
 int	handle_new_content(const char *arg, int **new_content, t_list **list)
 {
@@ -118,20 +85,23 @@ t_list **list, t_list **temp)
 	return (0);
 }
 
-int is_list_sorted(t_list **lst)
+int	is_list_sorted(t_list **lst)
 {
-    t_list *temp;
+	t_list	*temp;
 
-    temp = *lst;
-    while (temp != NULL && temp->next != NULL)
-    {
-        if (temp->content > temp->next->content)
-            return (0);
-        temp = temp->next;
-    }
-    return (1);
+	if (*lst == NULL || (*lst)->next == NULL)
+		return (1);
+	temp = *lst;
+	while (temp->next != NULL)
+	{
+		if (*(int *)(temp->content) > *(int *)(temp->next->content))
+		{
+			return (0);
+		}
+		temp = temp->next;
+	}
+	return (1);
 }
-
 
 int	main(int argc, char const *argv[])
 {
@@ -154,9 +124,7 @@ int	main(int argc, char const *argv[])
 		print_list(list);
 		printf("lista ordenada");
 		return (free_list(&list), 0);
-
 	}
-	
 	print_list(list);
 	//ft_putstr_fd("OK\n", 1);
 	return (free_list(&list), 0);
