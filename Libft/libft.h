@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:13:18 by rmakende          #+#    #+#             */
-/*   Updated: 2024/04/10 19:53:38 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:45:58 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	int				index;
 }	t_list;
 
 t_list	*ft_lstnew(void *content);
