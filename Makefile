@@ -6,14 +6,14 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:11:54 by rmakende          #+#    #+#              #
-#    Updated: 2024/10/16 00:03:13 by rmakende         ###   ########.fr        #
+#    Updated: 2024/10/17 15:41:29 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # El compilador de C a usar
 CC = gcc
 # Las flags para el compillador
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 
 # Directorios y nombres de librerías
 LIBFT_DIR = ./Libft

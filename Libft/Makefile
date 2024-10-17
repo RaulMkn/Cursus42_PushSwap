@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:11:54 by rmakende          #+#    #+#              #
-#    Updated: 2024/09/25 19:07:31 by rmakende         ###   ########.fr        #
+#    Updated: 2024/10/17 15:43:33 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ AR = ar
 # The flags to use with the archiver
 ARFLAGS = -rc
 # The flags to use with the C compiler
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 
 # The command to remove files
 RM = rm -f
 # A list of all .c files in the current directory
