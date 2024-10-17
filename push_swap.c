@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/16 00:10:41 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:07:42 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
 	int		j;
 	int		comparer;
 	int		*ptr;
-	j = 0;
+	
+	j =	0;
 	comparer = 0;
 	src = ft_split(argv[1], ' ');
 	if (!src)
@@ -117,6 +118,21 @@ t_list **list, t_list **temp)
 	return (0);
 }
 
+int is_list_sorted(t_list **lst)
+{
+    t_list *temp;
+
+    temp = *lst;
+    while (temp != NULL && temp->next != NULL)
+    {
+        if (temp->content > temp->next->content)
+            return (0);
+        temp = temp->next;
+    }
+    return (1);
+}
+
+
 int	main(int argc, char const *argv[])
 {
 	t_list	*list;
@@ -133,6 +149,14 @@ int	main(int argc, char const *argv[])
 		ft_putstr_fd("Error\n", 2);
 	if (check_duplicates(list) == 1)
 		return (ft_putstr_fd("Error\n", 2), ft_lstclear(&list, free), 1);
+	if (is_list_sorted(&list) == 1)
+	{
+		print_list(list);
+		printf("lista ordenada");
+		return (free_list(&list), 0);
+
+	}
+	
 	print_list(list);
 	//ft_putstr_fd("OK\n", 1);
 	return (free_list(&list), 0);
