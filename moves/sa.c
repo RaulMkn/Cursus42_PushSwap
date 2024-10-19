@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 14:45:46 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/06 19:47:39 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 21:46:19 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	swp_a(t_list **head)
 	temp = first->content;
 	first->content = second->content;
 	second->content = temp;
+	ft_printf("sa\n");
 }

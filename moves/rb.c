@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:06:37 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/06 19:47:56 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 21:46:10 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	rotate_b(t_list **head)
 		current = current->next;
 	current->next = first;
 	first->next = NULL;
+	ft_printf("rb\n");
 }

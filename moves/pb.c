@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 18:18:30 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/06 19:47:48 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 21:46:04 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	push_b(t_list **list_a, t_list **list_b)
 	*list_a = first_node->next;
 	first_node->next = *list_b;
 	*list_b = first_node;
+	ft_printf("pb\n");
 }

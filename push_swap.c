@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 20:31:25 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:16:20 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	main(int argc, char const *argv[])
 	if (is_list_sorted(&list) == 1)
 	{
 		print_list(list);
-		printf("lista ordenada");
+		printf("lista ordenada\n");
 		return (free_list(&list), 0);
 	}
 	simple_sort(&list, &aux);

@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 19:41:53 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 20:18:31 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:10:28 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ static void sort_three(t_list **list_a, t_list **list_b)
 
     temp = *list_a;
     min = temp->index;
+    if (min == 1)
+    {
+        swp_a(list_a);
+        return ;
+    }
     while (min != 0)
     {
         reverse_rotate_a(list_a);
