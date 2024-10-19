@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:54:50 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 21:46:21 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:49:00 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	swp_b(t_list **head)
 {
-	t_list	*first;
-	t_list	*second;
-	void	*temp;
+	t_list *first;
+	t_list *second;
 
-	first = *head;
-	second = (*head)->next;
+
 	if (*head == NULL || (*head)->next == NULL)
-		return ;
-	temp = first->content;
-	first->content = second->content;
-	second->content = temp;
-	ft_printf("sb\n");
+		return;
+	first = *head;
+	second = first->next;
 
+	first->next = second->next;
+	second->next = first;
+	*head = second;
+	ft_printf("sb\n");
 }
+
