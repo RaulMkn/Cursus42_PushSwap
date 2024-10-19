@@ -73,7 +73,7 @@ t_list **list, t_list **temp)
 			*list = string_push_swap(argv, *list, *temp);
 			if (!*list)
 				return (1);
-			else
+			set_index(list);
 				return (0);
 		}
 		result = handle_new_content(argv[i], &new_content, list);
@@ -82,6 +82,7 @@ t_list **list, t_list **temp)
 		*temp = create_new_node(new_content, list, temp);
 		i++;
 	}
+	set_index(list);
 	return (0);
 }
 

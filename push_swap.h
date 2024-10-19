@@ -39,6 +39,12 @@ int		is_valid_num(const char *str);
 int		check_duplicates(t_list *lst);
 t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp);
 t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
+t_list  *set_index(t_list **list);
+void bubble_sort(int *arr, int n);
+void assign_indices(t_list *list, int *arr, int size);
+int *list_to_sorted_array(t_list *list, int size);
+
+
 
 
 /*

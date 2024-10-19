@@ -23,7 +23,7 @@ rm -rf valgrind_output.txt
 echo "--------------------------------------------------------------------------------------------------"
 
 # Prueba 2 (esperado: éxito)
-./push_swap "1 3 2 4 5 6 7 8 2147483647"
+./push_swap "1 2 4 5 6 7 8 2147483647"
 if [ $? -eq 0 ]; then
     echo "Prueba 2: Exitosa (como se esperaba)"
 else

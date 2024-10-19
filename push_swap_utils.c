@@ -15,14 +15,21 @@
 void	print_list(t_list *head)
 {
 	t_list	*current;
+	t_list	*temp;
 
 	current = head;
+	temp = head;
 	while (current != NULL)
 	{
 		printf("%d -> ", *(int *)current->content);
 		current = current->next;
 	}
 	printf("NULL\n");
+	while (temp != NULL)
+	{
+		printf("%d -> ", temp->index);
+		temp = temp->next;
+	}
 }
 
 void	free_list(t_list **head)

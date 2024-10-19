@@ -39,6 +39,7 @@ SRCS = push_swap.c \
 	   ./moves/rrr.c\
 	   push_swap_utils.c\
 	   string_push_swap.c\
+	   set_list_indexes.c\
 
 
 
