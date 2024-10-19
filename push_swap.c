@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 18:38:16 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 20:31:25 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,31 +86,15 @@ t_list **list, t_list **temp)
 	return (0);
 }
 
-int	is_list_sorted(t_list **lst)
-{
-	t_list	*temp;
-
-	if (*lst == NULL || (*lst)->next == NULL)
-		return (1);
-	temp = *lst;
-	while (temp->next != NULL)
-	{
-		if (*(int *)(temp->content) > *(int *)(temp->next->content))
-		{
-			return (0);
-		}
-		temp = temp->next;
-	}
-	return (1);
-}
-
 int	main(int argc, char const *argv[])
 {
 	t_list	*list;
 	t_list	*temp;
+	t_list	*aux;
 
 	list = NULL;
 	temp = NULL;
+	aux = NULL;
 	if (argc > 1)
 	{
 		if (process_arguments(argc, argv, &list, &temp) == 1)
@@ -126,6 +110,7 @@ int	main(int argc, char const *argv[])
 		printf("lista ordenada");
 		return (free_list(&list), 0);
 	}
+	simple_sort(&list, &aux);
 	print_list(list);
 	//ft_putstr_fd("OK\n", 1);
 	return (free_list(&list), 0);

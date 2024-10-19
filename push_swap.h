@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 19:35:42 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 18:39:01 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 20:17:21 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ t_list  *set_index(t_list **list);
 void bubble_sort(int *arr, int n);
 void assign_indices(t_list *list, int *arr, int size);
 int *list_to_sorted_array(t_list *list, int size);
+int	is_list_sorted(t_list **lst);
+void	simple_sort(t_list **list_a, t_list **list_b);
+
 
 
 

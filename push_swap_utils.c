@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:20:27 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 18:35:47 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/19 20:19:23 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,24 @@ void	print_list(t_list *head)
 		printf("%d -> ", temp->index);
 		temp = temp->next;
 	}
+}
+
+int	is_list_sorted(t_list **lst)
+{
+	t_list	*temp;
+
+	if (*lst == NULL || (*lst)->next == NULL)
+		return (1);
+	temp = *lst;
+	while (temp->next != NULL)
+	{
+		if (*(int *)(temp->content) > *(int *)(temp->next->content))
+		{
+			return (0);
+		}
+		temp = temp->next;
+	}
+	return (1);
 }
 
 void	free_list(t_list **head)
