@@ -6,13 +6,13 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 18:16:02 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 21:45:57 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:05:02 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push_a(t_list **list_b, t_list **list_a)
+void	push_a(t_list **list_a, t_list **list_b)
 {
 	t_list	*first_node;
 
