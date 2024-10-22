@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 19:35:42 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 20:17:21 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:15:34 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void assign_indices(t_list *list, int *arr, int size);
 int *list_to_sorted_array(t_list *list, int size);
 int	is_list_sorted(t_list **lst);
 void	simple_sort(t_list **list_a, t_list **list_b);
+t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
+void	ksort(t_list **list_a, t_list **list_b);
 
 
 
@@ -54,7 +56,6 @@ void	simple_sort(t_list **list_a, t_list **list_b);
 t_list *string_push_swap(char const *argv[], t_list *lst, t_list **temp);
 t_list	*populate_list(char **src, t_list *lst, t_list **temp);
 int		*process_number(char *str, int *comparer);
-t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
 */
 
 #endif
