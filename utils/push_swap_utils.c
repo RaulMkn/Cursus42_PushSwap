@@ -6,11 +6,11 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:20:27 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 23:06:38 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:32:30 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	print_list(t_list *head)
 {

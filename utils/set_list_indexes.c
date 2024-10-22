@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ksort_utils.c                                      :+:      :+:    :+:   */
+/*   set_list_indexes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:40:50 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 19:31:01 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:32:36 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void bubble_sort(int *arr, int n) {
     int swapped = 1;

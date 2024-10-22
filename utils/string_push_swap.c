@@ -6,11 +6,11 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:33:32 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 18:36:49 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:32:44 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 
 t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp)
