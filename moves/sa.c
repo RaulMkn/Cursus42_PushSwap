@@ -6,13 +6,13 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 14:45:46 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 22:49:05 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:34:09 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swp_a(t_list **head)
+void	swp_a(t_list **head, int printable)
 {
 	t_list *first;
 	t_list *second;
@@ -26,7 +26,8 @@ void	swp_a(t_list **head)
 	first->next = second->next;
 	second->next = first;
 	*head = second;
+	if (printable == 1)
+		ft_printf("sa\n");
 
-	ft_printf("sa\n");
 }
 

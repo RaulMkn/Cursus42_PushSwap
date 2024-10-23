@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:59:26 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/22 22:44:07 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:38:20 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void new_push(char c, t_list **list_a, t_list **list_b, int *size_a, int *size_b
 {
 	if (c == 'a')
 	{
-		push_a(list_a, list_b);
+		push_a(list_a, list_b, 1);
 		(*size_a)++;
 		(*size_b)--;
 	}
 	else if (c == 'b')
 	{
-		push_b(list_a, list_b);
+		push_b(list_a, list_b, 1);
 		(*size_a)--;
 		(*size_b)++;
 	}
@@ -71,10 +71,10 @@ static void	push_to_b(t_list **list_a, t_list **list_b, \
 			if (!((*list_a)->index <= *size_b + range))
 				reverse_rotate_both(list_a, list_b);
 			else
-				rotate_b(list_b);
+				rotate_b(list_b, 1);
 		}
 		else
-			rotate_a(list_a);
+			rotate_a(list_a, 1);
 	}
 }
 
@@ -86,9 +86,9 @@ static void	push_to_a(t_list **list_a, t_list **list_b, \
 		while ((*list_b)->index != *size_b -1)
 		{
 			if (stack_get_pos(*list_b, *size_b -1) <= *size_b / 2)
-				rotate_b(list_b);
+				rotate_b(list_b, 1);
 			else
-				reverse_rotate_b(list_b);
+				reverse_rotate_b(list_b, 1);
 		}
 		new_push('a',list_a, list_b, size_a, size_b);
 	}

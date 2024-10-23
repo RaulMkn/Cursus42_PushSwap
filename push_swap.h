@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 19:35:42 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/22 22:15:34 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:36:30 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@
 # include "Libft/libft.h"
 # include "printf/ft_printf.h"
 
-void	swp_a(t_list **head);
-void	swp_b(t_list **head_b);
+void	swp_a(t_list **head, int printable);
+void	swp_b(t_list **head_b, int printable);
 void	swp_a_b(t_list **head_a, t_list **head_b);
-void	push_a(t_list **list_b, t_list **list_a);
-void	push_b(t_list **list_a, t_list **list_b);
-void	rotate_a(t_list **head);
-void	rotate_b(t_list **head);
+void	push_a(t_list **list_b, t_list **list_a, int printable);
+void	push_b(t_list **list_a, t_list **list_b, int printable);
+void	rotate_a(t_list **head, int printable);
+void	rotate_b(t_list **head, int printable);
 void	rotate_both(t_list **list_a, t_list **list_b);
-void	reverse_rotate_a(t_list **head);
-void	reverse_rotate_b(t_list **head);
+void	reverse_rotate_a(t_list **head, int printable);
+void	reverse_rotate_b(t_list **head, int printable);
 void	reverse_rotate_both(t_list **list_a, t_list **list_b);
 void	print_list(t_list *head);
 void	free_list(t_list **head);

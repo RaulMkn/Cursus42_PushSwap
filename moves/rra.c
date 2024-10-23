@@ -6,13 +6,13 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:46:33 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/19 21:46:14 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:33:32 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	reverse_rotate_a(t_list **head)
+void	reverse_rotate_a(t_list **head, int printable)
 {
 	t_list	*current;
 	t_list	*last;
@@ -30,6 +30,7 @@ void	reverse_rotate_a(t_list **head)
 	second_last->next = NULL;
 	last->next = *head;
 	*head = last;
-	ft_printf("rra\n");
+	if (printable == 1)
+		ft_printf("rra\n");
 
 }
