@@ -6,11 +6,11 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:59:26 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 18:38:20 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:46:04 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_sqrt(int nbr)
 {

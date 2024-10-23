@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 19:06:37 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 18:33:08 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:47:40 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ void	rotate_b(t_list **head, int printable)
 	t_list	*first;
 	t_list	*current;
 
-	// Si la lista está vacía o tiene un solo nodo, no se realiza la rotación.
 	if (!head || !(*head) || !((*head)->next))
-		return;
-
+		return ;
 	first = *head;
 	current = *head;
 	*head = (*head)->next;

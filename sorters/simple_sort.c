@@ -6,11 +6,11 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 19:41:53 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 18:40:40 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:46:33 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 static void sort_three(t_list **list_a)
 {
 	int min;
@@ -50,14 +50,14 @@ static void sort_four(t_list **list_a, t_list **list_b)
 	third = temp->next->next->index;
 	fourth = temp->next->next->next->index;
 	if (fourth == 3)
-		reverse_rotate_a(list_a, 1);  // El cuarto elemento es el más grande, lo llevamos al inicio
+		reverse_rotate_a(list_a, 1);
 	else if (third == 3)
 	{
-		rotate_a(list_a, 1);  // El tercer elemento es el más grande
+		rotate_a(list_a, 1);
 		rotate_a(list_a, 1);
 	}
 	else if (second == 3)
-		rotate_a(list_a, 1);  // El segundo elemento es el más grande
+		rotate_a(list_a, 1);
 	temp = *list_a;	
 	push_b(list_a, list_b, 1);
 	if (is_list_sorted(list_a) != 1)
