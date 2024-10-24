@@ -6,13 +6,13 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:59:26 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 18:46:04 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:57:04 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_sqrt(int nbr)
+int	get_sqrt(int nbr)
 {
 	int	i;
 
@@ -40,27 +40,12 @@ void new_push(char c, t_list **list_a, t_list **list_b, int *size_a, int *size_b
 	
 }
 
-int	stack_get_pos(t_list *stack, int id)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if (stack->index == id)
-			return (i);
-		stack = stack->next;
-		i++;
-	}
-	return (i);
-}
-
-static void	push_to_b(t_list **list_a, t_list **list_b, \
-											int *size_a, int *size_b)
+static void	push_to_b(t_list **list_a, t_list **list_b,
+int *size_a, int *size_b)
 {
 	int		range;
 
-	range = ft_sqrt(*size_a) * 133 / 100;
+	range = get_sqrt(*size_a) * 133 / 100;
 	while (*size_a > 0)
 	{
 		if ((*list_a)->index <= *size_b)
@@ -69,7 +54,7 @@ static void	push_to_b(t_list **list_a, t_list **list_b, \
 		{
 			new_push('b',list_a, list_b, size_a, size_b);
 			if (!((*list_a)->index <= *size_b + range))
-				reverse_rotate_both(list_a, list_b);
+				rotate_both(list_a, list_b);
 			else
 				rotate_b(list_b, 1);
 		}
@@ -85,7 +70,7 @@ static void	push_to_a(t_list **list_a, t_list **list_b, \
 	{
 		while ((*list_b)->index != *size_b -1)
 		{
-			if (stack_get_pos(*list_b, *size_b -1) <= *size_b / 2)
+			if (ft_lstpos(*list_b, *size_b -1) <= *size_b / 2)
 				rotate_b(list_b, 1);
 			else
 				reverse_rotate_b(list_b, 1);

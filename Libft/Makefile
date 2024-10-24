@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:11:54 by rmakende          #+#    #+#              #
-#    Updated: 2024/10/17 15:43:33 by rmakende         ###   ########.fr        #
+#    Updated: 2024/10/24 20:32:14 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ BONUS = ft_lstnew_bonus.c\
 		ft_lstdelone_bonus.c\
 		ft_lstclear_bonus.c\
 		ft_lstiter_bonus.c\
-		ft_lstmap_bonus.c
+		ft_lstmap_bonus.c\
+		ft_lstpos.c
 
 # A list of all .o files that correspond to the .c files
 OBJS = $(SRCS:.c=.o)
