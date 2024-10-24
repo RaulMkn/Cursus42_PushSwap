@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 19:00:53 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:37:48 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ int	main(int argc, char const *argv[])
 	list = NULL;
 	temp = NULL;
 	aux = NULL;
+	if (argc == 1)
+		return (0);
 	if (argc > 1)
 	{
 		if (process_arguments(argc, argv, &list, &temp) == 1)
@@ -104,12 +106,7 @@ int	main(int argc, char const *argv[])
 	if (check_duplicates(list) == 1)
 		return (ft_putstr_fd("Error\n", 2), ft_lstclear(&list, free), 1);
 	if (is_list_sorted(&list) == 1)
-	{
-		//print_list(list);
-		//printf("lista ordenada\n");
 		return (free_list(&list), 0);
-	}
 	ksort(&list, &aux);
-	//print_list(list);
 	return (free_list(&list),free_list(&aux), 0);
 }
