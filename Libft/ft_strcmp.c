@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 19:06:37 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/27 18:35:05 by rmakende         ###   ########.fr       */
+/*   Created: 2024/11/06 16:27:03 by rmakende          #+#    #+#             */
+/*   Updated: 2024/11/06 16:27:16 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	rotate_b(t_list **head, int printable)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_list	*first;
-	t_list	*current;
+	int	i;
 
-	if (!head || !(*head) || !((*head)->next))
-		return ;
-	first = *head;
-	current = *head;
-	*head = (*head)->next;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = first;
-	first->next = NULL;
-	if (printable == 1)
-		ft_printf("rb\n");
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] > s2[i] || s1[i] < s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
+		i++;
+	}
+	return (0);
 }

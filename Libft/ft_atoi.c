@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 02:08:25 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/17 18:30:14 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:13:38 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@ static int	check_spaces(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == ' ' || str[i] == '\v')
-			i++;
-		else if (str[i] == '\n' || str[i] == '\f')
-			i++;
-		else if (str[i] == '\t' || str[i] == '\r')
+		if (str[i] == ' ')
 			i++;
 		else
 			break ;
@@ -59,18 +55,3 @@ int	ft_atoi(const char *str, int *flag)
 	}
 	return (sum * mult);
 }
-/*
-#include <stdio.h>
-
-int main() {
-    // Pruebas con los valores máximo y mínimo de int
-    const char *min_int_str = "3333-3333"; // INT_MIN
-	int *comparer = 0;
-    int result_min = ft_atoi(min_int_str, comparer);
-
-    // Imprimir los resultados
-    printf("String: %s -> ft_atoi result: %d\n", min_int_str, result_min);
-
-    return 0;
-}
-*/

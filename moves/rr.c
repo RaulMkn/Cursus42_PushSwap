@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:36:21 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 18:35:16 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/27 18:34:59 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,4 @@ void	rotate_both(t_list **list_a, t_list **list_b)
 	rotate_a(list_a, 0);
 	rotate_b(list_b, 0);
 	ft_printf("rr\n");
-
 }

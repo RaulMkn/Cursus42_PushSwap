@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/24 21:37:48 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:35:42 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_list **list, t_list **temp)
 			if (!*list)
 				return (1);
 			set_index(list);
-				return (0);
+			return (0);
 		}
 		result = handle_new_content(argv[i], &new_content, list);
 		if (result == 0)
@@ -85,6 +85,7 @@ t_list **list, t_list **temp)
 	set_index(list);
 	return (0);
 }
+
 int	main(int argc, char const *argv[])
 {
 	t_list	*list;
@@ -108,5 +109,5 @@ int	main(int argc, char const *argv[])
 	if (is_list_sorted(&list) == 1)
 		return (free_list(&list), 0);
 	ksort(&list, &aux);
-	return (free_list(&list),free_list(&aux), 0);
+	return (free_list(&list), free_list(&aux), 0);
 }

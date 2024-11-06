@@ -6,31 +6,11 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:20:27 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/22 21:49:19 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/27 18:37:53 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	print_list(t_list *head)
-{
-	t_list	*current;
-	t_list	*temp;
-
-	current = head;
-	temp = head;
-	while (current != NULL)
-	{
-		printf("%d -> ", *(int *)current->content);
-		current = current->next;
-	}
-	printf("NULL\n");
-	while (temp != NULL)
-	{
-		printf("%d -> ", temp->index);
-		temp = temp->next;
-	}
-}
 
 int	is_list_sorted(t_list **lst)
 {

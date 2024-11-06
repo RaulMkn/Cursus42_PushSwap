@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 19:35:42 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/23 18:36:30 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/10/27 18:37:19 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,13 @@ int		is_valid_num(const char *str);
 int		check_duplicates(t_list *lst);
 t_list	*string_push_swap(char const *argv[], t_list *lst, t_list *temp);
 t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
-t_list  *set_index(t_list **list);
-void bubble_sort(int *arr, int n);
-void assign_indices(t_list *list, int *arr, int size);
-int *list_to_sorted_array(t_list *list, int size);
-int	is_list_sorted(t_list **lst);
+t_list	*set_index(t_list **list);
+void	bubble_sort(int *arr, int n);
+void	assign_indices(t_list *list, int *arr, int size);
+int		*list_to_sorted_array(t_list *list, int size);
+int		is_list_sorted(t_list **lst);
 void	simple_sort(t_list **list_a, t_list **list_b);
 t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
 void	ksort(t_list **list_a, t_list **list_b);
-
-
-
-
-
-/*
-t_list *string_push_swap(char const *argv[], t_list *lst, t_list **temp);
-t_list	*populate_list(char **src, t_list *lst, t_list **temp);
-int		*process_number(char *str, int *comparer);
-*/
 
 #endif

@@ -6,12 +6,12 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 21:07:40 by rmakende          #+#    #+#              #
-#    Updated: 2024/10/24 21:07:47 by rmakende         ###   ########.fr        #
+#    Updated: 2024/11/06 15:52:37 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./Libft
 LIBRARY = $(LIBFT_DIR)/libft.a
