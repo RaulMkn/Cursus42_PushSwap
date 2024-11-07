@@ -6,17 +6,75 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/11/06 16:35:42 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/07 23:41:38 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	free_split(char ***token_temp)
+{
+	int		j;
+	char	**token;
+
+	j = 0;
+	token = *token_temp;
+	while (token[j] != NULL)
+	{
+		free(token[j]);
+		j++;
+	}
+	free(token);
+}
+
+int	*convertir_argumentos_a_numeros(const char *argv[], int argc, int *contador)
+{
+	char	**token;
+	int		*temp;
+	int		j;
+	int		i;
+	int		*nums;
+
+	temp = 0;
+	i = 1;
+	*contador = 0;
+	nums = malloc(500 * (sizeof(int)));
+	while (i < argc)
+	{
+		if (strchr(argv[i], ' ') != NULL)
+		{
+			token = ft_split(argv[i], ' ');
+			j = 0;
+			while (token[j] != NULL)
+			{
+				nums[*contador] = ft_atoi(token[j], temp);
+				(*contador)++;
+				j++;
+			}
+			free_split(&token);
+		}
+		else
+		{
+			if (argv[i][0] == '\0')
+				i++;
+			nums[*contador] = ft_atoi(argv[i], temp);
+			(*contador)++;
+		}
+		i++;
+	}
+	return (nums);
+}
+
 t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 {
 	t_list	*new_node;
+	int		*new_content_copy;
 
-	new_node = ft_lstnew(new_content);
+	new_content_copy = malloc(sizeof(int));
+	if (!new_content_copy)
+		return (NULL); // O maneja el error según tu lógica
+	*new_content_copy = *new_content;
+	new_node = ft_lstnew(new_content_copy);
 	if (!new_node)
 	{
 		free_list(list);
@@ -37,6 +95,9 @@ t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 int	handle_new_content(const char *arg, int **new_content, t_list **list)
 {
 	int	comparer;
+	int	i;
+	int	contador;
+	int	*numeros;
 
 	comparer = 0;
 	*new_content = malloc(sizeof(int));
@@ -57,31 +118,21 @@ int	handle_new_content(const char *arg, int **new_content, t_list **list)
 	}
 	return (1);
 }
-
-int	process_arguments(int argc, char const *argv[],
-t_list **list, t_list **temp)
+int	process_arguments(int argc, char const *argv[], t_list **list,
+		t_list **temp)
 {
-	int		i;
-	int		*new_content;
-	int		result;
-
-	i = 1;
-	while (i < argc)
+	int i;
+	int *numeros;
+	int contador;
+	
+	i = 0;
+	numeros = convertir_argumentos_a_numeros(argv, argc, &contador);
+	while (i < contador)
 	{
-		if (argv[2] == NULL)
-		{
-			*list = string_push_swap(argv, *list, *temp);
-			if (!*list)
-				return (1);
-			set_index(list);
-			return (0);
-		}
-		result = handle_new_content(argv[i], &new_content, list);
-		if (result == 0)
-			return (1);
-		*temp = create_new_node(new_content, list, temp);
+		*temp = create_new_node(&numeros[i], list, temp);
 		i++;
 	}
+	free(numeros);
 	set_index(list);
 	return (0);
 }

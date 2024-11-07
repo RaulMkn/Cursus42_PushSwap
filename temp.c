@@ -3,57 +3,72 @@
 #include <stdlib.h>
 #include <string.h>
 
-void	convertir_argumentos_a_numeros(char *argv[], int argc, int numeros[],
+void	free_split(char ***token_temp)
+{
+	int	j;
+	char	**token;
+
+	j = 0;
+	token = *token_temp;
+	while (token[j] != NULL)
+	{
+		free(token[j]);
+		j++;
+	}
+	free(token);
+}
+
+
+int	*convertir_argumentos_a_numeros(char *argv[], int argc,
 		int *contador)
 {
 	char	**token;
-	int *temp;
+	int		*temp;
+	int		j;
+	int		i;
+	int		*nums;
 
-	int i = 1; // Comienza en 1 para omitir el nombre del programa.
-	*contador = 0; // Inicia el contador en 0 para el array de números.
+	temp = 0;
+	i = 1;
+	*contador = 0;
+	nums = malloc(500 * (sizeof(int)));
 	while (i < argc)
 	{
 		if (strchr(argv[i], ' ') != NULL)
 		{
 			token = ft_split(argv[i], ' ');
-			int j = 0; // Reinicia `j` para cada nuevo uso de ft_split
-			while (token[j] != NULL)
-			{
-				numeros[*contador] = ft_atoi(token[j], temp);
-				(*contador)++;
-				j++;
-			}
 			j = 0;
 			while (token[j] != NULL)
 			{
-				free(token[j]);
+				nums[*contador] = ft_atoi(token[j], temp);
+				(*contador)++;
 				j++;
 			}
-			free(token);
+			free_split(&token);
 		}
 		else
 		{
 			if (argv[i][0] == '\0')
 				i++;
-			numeros[*contador] = ft_atoi(argv[i], temp);
+			nums[*contador] = ft_atoi(argv[i], temp);
 			(*contador)++;
 		}
 		i++;
 	}
+	return nums;
 }
 
 int	main(int argc, char *argv[])
 {
 	int	contador;
 
-	int numeros[argc * 2]; // Suponiendo que el array tendrá suficiente espacio
-	// Convierte los argumentos a números
-	convertir_argumentos_a_numeros(argv, argc, numeros, &contador);
+	int *numeros = convertir_argumentos_a_numeros(argv, argc, &contador);
 	// Imprime los números separados por espacio
 	for (int j = 0; j < contador; j++)
 	{
 		printf("%d ", numeros[j]);
 	}
 	printf("\n");
+	free(numeros);
 	return (0);
 }
