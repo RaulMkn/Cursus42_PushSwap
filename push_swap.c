@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 17:42:45 by rmakende          #+#    #+#             */
-/*   Updated: 2024/11/07 23:41:38 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/10 14:15:48 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,64 @@ void	free_split(char ***token_temp)
 	free(token);
 }
 
-int	*convertir_argumentos_a_numeros(const char *argv[], int argc, int *contador)
+void print_list(t_list *head)
+{
+	t_list *current = head;
+	
+	while (current != NULL)
+	{
+		// Si el contenido es un int (ajusta según tu caso)
+		printf("Index: %d, Content: %d\n", current->index, *(int *)(current->content));
+		current = current->next;
+	}
+}
+
+int	*convertir_argumentos_a_numeros(const char *argv[], int argc, int *contador,
+		t_list **list)
 {
 	char	**token;
-	int		*temp;
+	int		comparer;
 	int		j;
 	int		i;
 	int		*nums;
 
-	temp = 0;
+	comparer = 0;
 	i = 1;
 	*contador = 0;
 	nums = malloc(500 * (sizeof(int)));
+	if (!nums)
+	{
+		free_list(list);
+		return (NULL);
+	}
 	while (i < argc)
 	{
 		if (strchr(argv[i], ' ') != NULL)
 		{
 			token = ft_split(argv[i], ' ');
+			if (!token)
+			{
+				free(nums);
+				free_list(list);
+				return (NULL);
+			}
 			j = 0;
 			while (token[j] != NULL)
 			{
-				nums[*contador] = ft_atoi(token[j], temp);
+				nums[*contador] = ft_atoi(token[j], &comparer);
+				if (comparer)
+					return (free(nums), free_list(list), NULL);
+				if (nums[*contador] == 0)
+				{
+					comparer = is_valid_num(token[j]);
+					if (comparer == 1)
+					{
+						free_split(&token);
+						free(nums);
+						free_list(list);
+						return (NULL);
+					}
+				}
 				(*contador)++;
 				j++;
 			}
@@ -57,7 +94,19 @@ int	*convertir_argumentos_a_numeros(const char *argv[], int argc, int *contador)
 		{
 			if (argv[i][0] == '\0')
 				i++;
-			nums[*contador] = ft_atoi(argv[i], temp);
+			nums[*contador] = ft_atoi(argv[i], &comparer);
+			if (comparer)
+				return (free(nums), free_list(list), NULL);
+			if (nums[*contador] == 0)
+			{
+				comparer = is_valid_num(argv[i]);
+				if (comparer == 1)
+				{
+					free(nums);
+					free_list(list);
+					return (NULL);
+				}
+			}
 			(*contador)++;
 		}
 		i++;
@@ -72,7 +121,7 @@ t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 
 	new_content_copy = malloc(sizeof(int));
 	if (!new_content_copy)
-		return (NULL); // O maneja el error según tu lógica
+		return (NULL);
 	*new_content_copy = *new_content;
 	new_node = ft_lstnew(new_content_copy);
 	if (!new_node)
@@ -92,41 +141,17 @@ t_list	*create_new_node(int *new_content, t_list **list, t_list **temp)
 	return (new_node);
 }
 
-int	handle_new_content(const char *arg, int **new_content, t_list **list)
-{
-	int	comparer;
-	int	i;
-	int	contador;
-	int	*numeros;
-
-	comparer = 0;
-	*new_content = malloc(sizeof(int));
-	if (!(*new_content))
-		return (0);
-	**new_content = ft_atoi(arg, &comparer);
-	if (comparer)
-		return (free(*new_content), free_list(list), 0);
-	if (**new_content == 0)
-	{
-		comparer = is_valid_num(arg);
-		if (comparer == 1)
-		{
-			free(*new_content);
-			free_list(list);
-			return (0);
-		}
-	}
-	return (1);
-}
 int	process_arguments(int argc, char const *argv[], t_list **list,
 		t_list **temp)
 {
-	int i;
-	int *numeros;
-	int contador;
-	
+	int	i;
+	int	*numeros;
+	int	contador;
+
 	i = 0;
-	numeros = convertir_argumentos_a_numeros(argv, argc, &contador);
+	numeros = convertir_argumentos_a_numeros(argv, argc, &contador, list);
+	if (numeros == NULL)
+		return (1);
 	while (i < contador)
 	{
 		*temp = create_new_node(&numeros[i], list, temp);
@@ -159,6 +184,8 @@ int	main(int argc, char const *argv[])
 		return (ft_putstr_fd("Error\n", 2), ft_lstclear(&list, free), 1);
 	if (is_list_sorted(&list) == 1)
 		return (free_list(&list), 0);
+	//print_list(list);
 	ksort(&list, &aux);
+	//print_list(list);
 	return (free_list(&list), free_list(&aux), 0);
 }

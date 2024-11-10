@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:59:26 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/27 18:48:39 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/10 14:14:02 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static void	push_to_b(t_list **list_a, t_list **list_b, int *size_a,
 		if ((*list_a)->index <= *size_b)
 		{
 			push_b(list_a, list_b, 1);
-			size_a--;
-			size_b++;
+			(*size_a)--;
+			(*size_b)++;
 		}
 		else if ((*list_a)->index <= *size_b + range)
 		{
 			push_b(list_a, list_b, 1);
-			size_a--;
-			size_b++;
+			(*size_a)--;
+			(*size_b)++;
 			if (!((*list_a)->index <= *size_b + range))
 				rotate_both(list_a, list_b);
 			else
