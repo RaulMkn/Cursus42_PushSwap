@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 21:07:40 by rmakende          #+#    #+#              #
-#    Updated: 2024/11/09 20:17:00 by rmakende         ###   ########.fr        #
+#    Updated: 2024/11/10 14:47:57 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS = push_swap.c \
 	   ./moves/rrb.c\
 	   ./moves/rrr.c\
 	   ./utils/push_swap_utils.c\
-	   ./utils/string_push_swap.c\
+	   ./utils/arguments_parser.c\
 	   ./utils/set_list_indexes.c\
 	   ./sorters/simple_sort.c\
 	   ./sorters/ksort.c

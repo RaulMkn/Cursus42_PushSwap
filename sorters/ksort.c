@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:59:26 by rmakende          #+#    #+#             */
-/*   Updated: 2024/11/10 14:14:02 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/10 14:22:52 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static void	push_to_a(t_list **list_a, t_list **list_b, int *size_a,
 				reverse_rotate_b(list_b, 1);
 		}
 		push_a(list_a, list_b, 1);
-		size_a++;
-		size_b--;
+		(*size_a)++;
+		(*size_b)--;
 	}
 }
 
