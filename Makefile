@@ -6,7 +6,7 @@
 #    By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 21:07:40 by rmakende          #+#    #+#              #
-#    Updated: 2024/11/10 14:47:57 by rmakende         ###   ########.fr        #
+#    Updated: 2024/11/19 17:16:41 by rmakende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,6 @@ SRCS = push_swap.c \
 	   ./sorters/simple_sort.c\
 	   ./sorters/ksort.c
 
-
-
 OBJS = $(SRCS:.c=.o)
 TARGET = push_swap
 
@@ -57,13 +55,11 @@ $(TARGET): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
-	cd $(LIBFT_DIR) && $(MAKE) clean
-	cd $(PRINTF_DIR) && $(MAKE) clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
 
 fclean: clean
 	rm -f $(TARGET)
-	cd $(LIBFT_DIR) && $(MAKE) fclean
-	cd $(PRINTF_DIR) && $(MAKE) fclean
 
 re: fclean all
 

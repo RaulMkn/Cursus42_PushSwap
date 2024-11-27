@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 20:33:32 by rmakende          #+#    #+#             */
-/*   Updated: 2024/11/10 14:56:05 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/20 21:48:53 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	*init_nums(int **contador, t_list **list)
 {
 	int	*nums;
 
-	nums = malloc(500 * sizeof(int));
+	nums = malloc(2147483646 * sizeof(int));
 	if (!nums)
 	{
-		free_list(list);
+		ft_lstclear(list, free);
 		return (NULL);
 	}
 	**contador = 0;
@@ -50,8 +50,7 @@ int	parse_argument(const char *arg, int *nums, int *contador, t_list **list)
 		tokens = ft_split(arg, ' ');
 		if (!tokens)
 		{
-			free(nums);
-			free_list(list);
+			ft_lstclear(list, free);
 			return (-1);
 		}
 		if (parse_tokens(tokens, nums, contador, list) == -1)
@@ -92,8 +91,7 @@ int	validate_and_store_num(const char *token, int *nums, int *contador,
 	nums[*contador] = ft_atoi(token, &comparer);
 	if (comparer || (nums[*contador] == 0 && is_valid_num(token) == 1))
 	{
-		free(nums);
-		free_list(list);
+		ft_lstclear(list, free);
 		return (-1);
 	}
 	(*contador)++;

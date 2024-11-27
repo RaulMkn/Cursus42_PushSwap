@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 19:35:42 by rmakende          #+#    #+#             */
-/*   Updated: 2024/11/10 14:57:48 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/20 21:23:50 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,15 @@ void	rotate_both(t_list **list_a, t_list **list_b);
 void	reverse_rotate_a(t_list **head, int printable);
 void	reverse_rotate_b(t_list **head, int printable);
 void	reverse_rotate_both(t_list **list_a, t_list **list_b);
-void	free_list(t_list **head);
-void	*f_split(char **head, t_list **list, int n);
 int		is_valid_num(const char *str);
 int		check_duplicates(t_list *lst);
-t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
 t_list	*set_index(t_list **list);
 void	bubble_sort(int *arr, int n);
 void	assign_indices(t_list *list, int *arr, int size);
 int		*list_to_sorted_array(t_list *list, int size);
 int		is_list_sorted(t_list **lst);
 void	simple_sort(t_list **list_a, t_list **list_b);
-t_list	*create_new_node(int *new_content, t_list **list, t_list **temp);
 void	ksort(t_list **list_a, t_list **list_b);
-int		*convert_to_int_array(const char *argv[], int argc, int *contador,
-			t_list **list);
 int		*init_nums(int **contador, t_list **list);
 int		parse_argument(const char *arg, int *nums, int *contador,
 			t_list **list);

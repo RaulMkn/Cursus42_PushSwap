@@ -6,7 +6,7 @@
 /*   By: rmakende <rmakende@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:20:27 by rmakende          #+#    #+#             */
-/*   Updated: 2024/10/27 18:37:53 by rmakende         ###   ########.fr       */
+/*   Updated: 2024/11/20 20:49:49 by rmakende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,35 +28,6 @@ int	is_list_sorted(t_list **lst)
 		temp = temp->next;
 	}
 	return (1);
-}
-
-void	free_list(t_list **head)
-{
-	t_list	*temp;
-
-	while (*head != NULL)
-	{
-		temp = (*head)->next;
-		free((*head)->content);
-		free(*head);
-		*head = temp;
-	}
-}
-
-void	*f_split(char **head, t_list **list, int n)
-{
-	int	i;
-
-	i = 0;
-	while (head[i] != NULL)
-	{
-		free(head[i]);
-		i++;
-	}
-	if (n == 1)
-		free_list(list);
-	free(head);
-	return (NULL);
 }
 
 int	check_duplicates(t_list *lst)
